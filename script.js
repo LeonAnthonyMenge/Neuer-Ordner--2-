@@ -10,20 +10,13 @@ function pressEquals(){
 
     let html = document.getElementById("container").innerHTML;
     let split = html.split(" ");
-    let firstArabicNumber = convertRomanToArabic(split[4]);
-    let secondArabicNumber = convertRomanToArabic(split[6]);
-    let arabicString = firstArabicNumber + split[5] + secondArabicNumber;
+    let firstArabicNumber = convertRomanToArabic(split[0]);
+    let secondArabicNumber = convertRomanToArabic(split[2]);
+    let arabicString = firstArabicNumber + split[1] + secondArabicNumber;
     let arabicResult = eval(arabicString);
     let romanResult = convertArabicToRoman(arabicResult);
 
     container.innerHTML = romanResult;
-    
-    console.log(firstArabicNumber);
-    console.log(secondArabicNumber);
-    console.log(arabicString);
-    console.log(arabicResult);
-    console.log(romanResult);
-
 }
 
 function pressRomanToArabic(){
@@ -97,7 +90,6 @@ function convertArabicToRoman(arabicNumber){
      }
      return romanLetter;
 }
-console.log(convertRomanToArabic('&#8548;'))
 
 //Convert roman numeral to arabic number and returns it
 function convertRomanToArabic(romanNumeral) {
