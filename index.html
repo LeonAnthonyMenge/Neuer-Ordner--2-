@@ -12,60 +12,60 @@
 </head>
 <body>
     <div id="container">
-        2345
+
     </div>
 
     <table id="topTable">
         <td>
-            <figure class="circle" id="del"><div>DEL</div></figure>
+            <figure onclick="deletion()" class="circle" id="del"><div>DEL</div></figure>
         </td>
         <td>
-            <figure class="circle" id="equals"><div>=</div></figure>
+            <figure onclick="pressEquals()" class="circle" id="equals"><div>=</div></figure>
         </td> 
     </table>
 
-    <table>
+    <table class="lowerTable">
         
         <tr>
             <td>
-                <figure class="circle" id="i"><div>&#8544;</div></figure>
+                <figure onclick="addRomanNumeral('I')" class="circle" id="i"><div>&#8544;</div></figure>
             </td>
             <td>
-                <figure class="circle" id="v"><div>&#8548;</div></figure>
+                <figure onclick="addRomanNumeral('V')" class="circle" id="v"><div>&#8548;</div></figure>
             </td>
             <td>
-                <figure  class="operation"><div>+</div></figure>
+                <figure onclick="addOperation(' + ')"  class="operation circle"><div> + </div></figure>
             </td>
             <td>
-                <figure  class="operation"><div>x</div></figure>
+                <figure onclick="addOperation(' * ')"  class="operation circle"><div> x </div></figure>
             </td>
         </tr>
         <tr>
             <td>
-                <figure class="circle" id="x"><div>&#8553;</div></figure>
+                <figure onclick="addRomanNumeral('X')" class="circle" id="x"><div>&#8553;</div></figure>
             </td>
             <td>
-                <figure class="circle" id="l"><div>&#8556;</div></figure>
+                <figure onclick="addRomanNumeral('L')" class="circle" id="l"><div>&#8556;</div></figure>
             </td>
             <td>
-                <figure  class="operation"><div>-</div></figure>
+                <figure onclick="addOperation(' - ')"  class="operation circle"><div> - </div></figure>
             </td>
             <td>
-                <figure  class="operation"><div>/</div></figure>
+                <figure onclick="addOperation(' / ')"  class="operation circle"><div> / </div></figure>
             </td>
         </tr>
          <tr>
             <td>
-                <figure class="circle" id="c"><div>&#8557;</div></figure>
+                <figure onclick="addRomanNumeral('C')" class="circle" id="c"><div>&#8557;</div></figure>
             </td>
             <td>
-                <figure class="circle"><div>&#8558;</div></figure>
+                <figure onclick="addRomanNumeral('D')" class="circle"><div>&#8558;</div></figure>
             </td>
             <td>
-                <figure class="circle"><div>&#8559;</div></figure>
+                <figure onclick="addRomanNumeral('M')" class="circle"><div>&#8559;</div></figure>
             </td>
             <td>
-                <figure class="circle" id="romanToArabic"><div>R/A</div></figure>
+                <figure onclick="pressRomanToArabic()" class="circle" id="romanToArabic"><div>R/A</div></figure>
             </td>
         </tr>
     </table>

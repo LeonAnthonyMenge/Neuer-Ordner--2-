@@ -1,52 +1,87 @@
 //Shows if a binary operation is currently displayd
 let operationIn = false;
+//Shows if the number is arabic (true) or roman
+let numberIsArabic = false
 
 //buttons
 function pressEquals(){
+  //add if number is arabic 
     operationIn = false;
+
+    let html = document.getElementById("container").innerHTML;
+    let split = html.split(" ");
+    let firstArabicNumber = convertRomanToArabic(split[4]);
+    let secondArabicNumber = convertRomanToArabic(split[6]);
+    let arabicString = firstArabicNumber + split[5] + secondArabicNumber;
+    let arabicResult = eval(arabicString);
+    let romanResult = convertArabicToRoman(arabicResult);
+
+    container.innerHTML = romanResult;
+    
+    console.log(firstArabicNumber);
+    console.log(secondArabicNumber);
+    console.log(arabicString);
+    console.log(arabicResult);
+    console.log(romanResult);
+
 }
 
 function pressRomanToArabic(){
+    //add if number is arabic 
 
+  if(operationIn){
+
+  }else{
+    let html = document.getElementById("container").innerHTML;
+    html = html.trim();
+    let arabicHTML = convertRomanToArabic(html);
+    container.innerHTML = arabicHTML;
+  }
 }
 
-function pressOperation(){
+function addOperation(operation){
+    //add if number is arabic 
+
     if(operationIn){
 
     }else{
-        operationIn = true
+        //operationIn = true
+        document.getElementById("container").innerHTML += operation;
     }
+}
+
+function addRomanNumeral(numeral){
+    //add if number is arabic 
+
+  document.getElementById("container").innerHTML += numeral;
 }
 
 function deletion(){
     operationIn = false;
+    numberIsArabic = false;
+
+    container.innerHTML = "";
 }
 
-//calculate and return the result
-function calculate(){
-    let arabicResult;
-
-    return arabicResult;
-}
 
 //Convert
 
 //Converts arabic number to roman numeral and returns it
 function convertArabicToRoman(arabicNumber){
     const numbrersAndNumerals = [
-        {number: 1000, roman: '&#8559;'},
-        {number: 900, roman: '&#8557;'},
-        {number: 500, roman: '&#8558;'},
-        {number: 400, roman: '&#8557;&#8558;'},
-        {number: 100, roman: '&#8557;'},
-        {number: 90, roman: '&#8553;&#8557;'},
-        {number: 50, roman: '&#8556;'},
-        {number: 40, roman: '&#8553;&#8556;'},
-        {number: 10, roman: '&#8553;'},
-        {number: 9, roman: '&#8544;&#8553;'},
-        {number: 5, roman: '&#8548;'},
-        {number: 4, roman: '&#8544;&#8548;'},
-        {number: 1, roman: '&#8544;'}
+        {number: 1000, roman: 'M'},
+        {number: 900, roman: 'CM'},
+        {number: 500, roman: 'D'},
+        {number: 400, roman: 'CD'},
+        {number: 100, roman: 'C'},
+        {number: 90, roman: 'XC'},
+        {number: 50, roman: 'L'},
+        {number: 40, roman: 'XL'},
+        {number: 10, roman: 'X'},
+        {number: 9, roman: 'IX'},
+        {number: 5, roman: 'V'},
+        {number: 4, roman: 'IV'},
+        {number: 1, roman: 'I'}
     ];
 
 
@@ -62,17 +97,18 @@ function convertArabicToRoman(arabicNumber){
      }
      return romanLetter;
 }
+console.log(convertRomanToArabic('&#8548;'))
 
 //Convert roman numeral to arabic number and returns it
-function romanToArabic(romanNumeral) {
+function convertRomanToArabic(romanNumeral) {
     const romanNumerals = {
-      "&#8544;": 1,
-      "&#8548;": 5,
-      "&#8553;": 10,
-      "&#8556;": 50,
-      "&#8557;": 100,
-      "&#8558;": 500,
-      "&#8559;": 1000
+      "I": 1,
+      "V": 5,
+      "X": 10,
+      "L": 50,
+      "C": 100,
+      "D": 500,
+      "M": 1000
     };
   
     let arabicNumeral = 0;
