@@ -5,7 +5,9 @@ let numberIsArabic = false
 
 //buttons
 function pressEquals(){
-  //add if number is arabic 
+  if(numberIsArabic){
+    romanToArabic();
+  }
     operationIn = false;
 
     let html = document.getElementById("container").innerHTML;
@@ -16,35 +18,48 @@ function pressEquals(){
     let arabicResult = eval(arabicString);
     let romanResult = convertArabicToRoman(arabicResult);
 
-    container.innerHTML = romanResult;
+    if(arabicResult < 0){
+      container.innerHTML = "Error";
+    }else{
+      container.innerHTML = romanResult;
+    }
 }
 
 function pressRomanToArabic(){
-    //add if number is arabic 
-
-  if(operationIn){
-
-  }else{
-    let html = document.getElementById("container").innerHTML;
-    html = html.trim();
-    let arabicHTML = convertRomanToArabic(html);
-    container.innerHTML = arabicHTML;
+  if(numberIsArabic){
+    if(operationIn){ 
+      pressEquals(); 
+    }else{ 
+      romanToArabic(); 
+    }
+  }else{  
+    if(operationIn){ pressEquals(); }
+    
+      numberIsArabic = true;
+      let html = document.getElementById("container").innerHTML;
+      html = html.trim();
+      let arabicHTML = convertRomanToArabic(html);
+      container.innerHTML = arabicHTML;
+    
   }
 }
 
 function addOperation(operation){
-    //add if number is arabic 
-
+    if(numberIsArabic){
+      romanToArabic();
+    }
     if(operationIn){
 
     }else{
-        //operationIn = true
+        operationIn = true
         document.getElementById("container").innerHTML += operation;
     }
 }
 
 function addRomanNumeral(numeral){
-    //add if number is arabic 
+  if(numberIsArabic){
+    romanToArabic();
+  }  
 
   document.getElementById("container").innerHTML += numeral;
 }
@@ -54,6 +69,15 @@ function deletion(){
     numberIsArabic = false;
 
     container.innerHTML = "";
+}
+
+//if html in container shows arabic number
+function romanToArabic(){
+      numberIsArabic = false;
+      let html = document.getElementById("container").innerHTML;
+      html = html.trim();
+      let romanNumeral = convertArabicToRoman(html);
+      container.innerHTML = romanNumeral;
 }
 
 
@@ -95,11 +119,17 @@ function convertArabicToRoman(arabicNumber){
 function convertRomanToArabic(romanNumeral) {
     const romanNumerals = {
       "I": 1,
+      "IV": 4,
       "V": 5,
+      "IX": 9,
       "X": 10,
+      "XL": 40,
       "L": 50,
+      "XC": 90,
       "C": 100,
+      "CD": 400,
       "D": 500,
+      "CM": 900,
       "M": 1000
     };
   
