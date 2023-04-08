@@ -1,0 +1,15 @@
+{
+  "name": "romannumerals",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeonAnthonyMenge/Roman-Numerals.git"
+  },
+  "author": "Leon",
+  "license": "ISC"
+}
