@@ -149,5 +149,6 @@ function convertRomanToArabic(romanNumeral) {
   }
 
 
-  
+module.exports = convertArabicToRoman;
+module.exports = convertRomanToArabic;
 
