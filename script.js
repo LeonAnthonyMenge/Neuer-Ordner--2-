@@ -134,6 +134,7 @@ function convertRomanToArabic(romanNumeral) {
     };
   
     let arabicNumeral = 0;
+
   
     for (let i = 0; i < romanNumeral.length; i++) {
       let currentNumeral = romanNumerals[romanNumeral[i]];
@@ -149,6 +150,9 @@ function convertRomanToArabic(romanNumeral) {
   }
 
 
-module.exports = convertArabicToRoman;
-module.exports = convertRomanToArabic;
+module.exports = { 
+  convertArabicToRoman,
+  convertRomanToArabic
+}
+
 

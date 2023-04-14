@@ -11,5 +11,8 @@
     "url": "git+https://github.com/LeonAnthonyMenge/Roman-Numerals.git"
   },
   "author": "Leon",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.5.0"
+  }
 }
